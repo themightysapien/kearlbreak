@@ -1,0 +1,7 @@
+{
+  "name": "kearlbreak",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

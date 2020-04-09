@@ -1,0 +1,46 @@
+<div class="bg-white p-10">
+  <div *ngIf="!currentRoom">
+    <ion-button color="primary" (click)="createRoom()">Create Room</ion-button>
+    <ion-button color="success" (click)="initPlayerName()"
+      >Change Name</ion-button
+    >
+  </div>
+
+  <div *ngIf="players.length > 0">
+    <h4>Players</h4>
+    <ion-list *ngIf="currentRoom">
+      <strong>ROOM : </strong>
+      <ion-label color="primary" [innerHTML]="currentRoom.name"></ion-label>
+      <ion-button
+        color="danger"
+        size="small"
+        (click)="leaveRoom(currentRoom)"
+        slot="end"
+        >Leave</ion-button
+      >
+    </ion-list>
+    <ion-list *ngFor="let p of players">
+      <span [innerHTML]="p.name"></span>
+    </ion-list>
+
+    <ion-button color="success" (click)="play()">Play</ion-button>
+    <ion-button color="secondary" (click)="shuffle()">Shuffle</ion-button>
+  </div>
+
+  <div *ngIf="rooms.length > 0">
+    <h4>Available Room</h4>
+    <ion-list *ngFor="let room of rooms">
+      <ion-label [innerHTML]="room.name"></ion-label>
+      <ion-label color="primary"
+        >(<span [innerHTML]="room.players.length"></span>/4)</ion-label
+      >
+      <ion-button
+        color="success"
+        size="small"
+        (click)="joinRoom(room)"
+        slot="end"
+        >Join</ion-button
+      >
+    </ion-list>
+  </div>
+</div>
