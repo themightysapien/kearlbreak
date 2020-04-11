@@ -58,13 +58,16 @@ export class PlaySceneService extends Phaser.Scene {
         this.game.context.canvas.height - 80);
     });
     // this.sprite = this.add.sprite(50, 300, 'card', 1).setOrigin(0, 0);
-  }
-
-  update() {
+    
+    //will update this later
     this.players.forEach(player => {
       if (player.isClient()) {
         this.playersDeckRenderer[player.id].initDeck(player.deck).render(this);
       }
     });
+  }
+
+  update() {
+    
   }
 }
